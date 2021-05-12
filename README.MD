@@ -153,6 +153,10 @@ Response Body:
     }
 }
 ```
+### GET /books (Mendapatkan seluruh buku).
+- ?name : Tampilkan seluruh buku yang mengandung nama berdasarkan nilai yang diberikan pada query ini. Contoh /books?name=”dicoding”, maka akan menampilkan daftar buku yang mengandung nama “dicoding” secara non-case sensitive  (tidak peduli besar dan kecil huruf).
+- ?reading : Bernilai 0 atau 1. Bila 0, maka tampilkan buku yang sedang tidak dibaca (reading: false). Bila 1, maka tampilkan buku yang sedang dibaca (reading: true). Selain itu, tampilkan buku baik sedang dibaca atau tidak.
+- ?finished : Bernilai 0 atau 1. Bila 0, maka tampilkan buku yang sudah belum selesai dibaca (finished: false). Bila 1, maka tampilkan buku yang sudah selesai dibaca (finished: true). Selain itu, tampilkan buku baik yang sudah selesai atau belum dibaca.
 
 # Method : PUT
 URL : /books/{bookId}  
@@ -195,5 +199,35 @@ Response Body:
 {
     "status": "fail",
     "message": "Gagal memperbarui buku. Id tidak ditemukan"
+}
+```
+### Bila buku berhasil diperbarui, server harus mengembalikan respons dengan:
+Status Code : 200  
+Response Body:
+```json
+{
+    "status": "success",
+    "message": "Buku berhasil diperbarui"
+}
+```
+
+# Method : DELETE
+URL: /books/{bookId}  
+### Bila id yang dilampirkan tidak dimiliki oleh buku manapun, maka server harus mengembalikan respons berikut:
+Status Code : 404  
+Response Body:
+```json
+{
+    "status": "fail",
+    "message": "Buku gagal dihapus. Id tidak ditemukan"
+}
+```
+### Bila id dimiliki oleh salah satu buku, maka buku tersebut harus dihapus dan server mengembalikan respons berikut:
+Status Code : 200  
+Response Body:
+```json
+{
+    "status": "success",
+    "message": "Buku berhasil dihapus"
 }
 ```
