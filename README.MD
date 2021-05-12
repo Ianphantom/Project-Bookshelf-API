@@ -116,4 +116,40 @@ Jika belum terdapat buku yang dimasukkan, server bisa merespons dengan array boo
         "books": []
     }
 }
+```  
+  
+# Method : GET (by ID)
+URL: /books/{bookId}  
+### Bila buku dengan id yang dilampirkan oleh client tidak ditemukan, maka server harus mengembalikan respons dengan:
+Status Code : 404  
+Response Body:  
+```json
+{
+    "status": "fail",
+    "message": "Buku tidak ditemukan"
+}
+```
+### Bila buku dengan id yang dilampirkan ditemukan, maka server harus mengembalikan respons dengan:
+Status Code : 200  
+Response Body:
+```json
+{
+    "status": "success",
+    "data": {
+        "book": {
+            "id": "aWZBUW3JN_VBE-9I",
+            "name": "Buku A Revisi",
+            "year": 2011,
+            "author": "Jane Doe",
+            "summary": "Lorem Dolor sit Amet",
+            "publisher": "Dicoding",
+            "pageCount": 200,
+            "readPage": 26,
+            "finished": false,
+            "reading": false,
+            "insertedAt": "2021-03-05T06:14:28.930Z",
+            "updatedAt": "2021-03-05T06:14:30.718Z"
+        }
+    }
+}
 ```
