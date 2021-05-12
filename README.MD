@@ -57,3 +57,25 @@ Response Body:
     "message": "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount"
 }
 ```
+- Server gagal memasukkan buku karena alasan umum (generic error). Bila hal ini terjadi, maka server akan merespons dengan:  
+Status Code : 500  
+Response Body:
+```json
+{
+    "status": "error",
+    "message": "Buku gagal ditambahkan"
+}
+```
+
+Bila buku berhasil dimasukkan, server harus mengembalikan respons dengan:  
+Status Code : 201
+Response Body:
+```json
+{
+    "status": "success",
+    "message": "Buku berhasil ditambahkan",
+    "data": {
+        "bookId": "1L7ZtDUFeGs7VlEt"
+    }
+}
+```
