@@ -153,3 +153,47 @@ Response Body:
     }
 }
 ```
+
+# Method : PUT
+URL : /books/{bookId}  
+Body Request:
+```json
+{
+    "name": string,
+    "year": number,
+    "author": string,
+    "summary": string,
+    "publisher": string,
+    "pageCount": number,
+    "readPage": number,
+    "reading": boolean
+}
+```
+### Server harus merespons gagal bila:
+- Client tidak melampirkan properti name pada request body. Bila hal ini terjadi, maka server akan merespons dengan:
+Status Code : 400   
+Response Body:
+```json
+{
+    "status": "fail",
+    "message": "Gagal memperbarui buku. Mohon isi nama buku"
+}
+```
+- Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan:
+Status Code : 400  
+Response Body:
+```json
+{
+    "status": "fail",
+    "message": "Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount"
+}
+```
+- Id yang dilampirkan oleh client tidak ditemukkan oleh server. Bila hal ini terjadi, maka server akan merespons dengan:
+Status Code : 404  
+Response Body:
+```json
+{
+    "status": "fail",
+    "message": "Gagal memperbarui buku. Id tidak ditemukan"
+}
+```
