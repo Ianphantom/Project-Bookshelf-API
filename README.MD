@@ -1,5 +1,5 @@
 # Method : POST
-URL : /books
+URL : /books  
 Body Request
 ```json
 {
@@ -75,6 +75,45 @@ Response Body:
     "message": "Buku berhasil ditambahkan",
     "data": {
         "bookId": "1L7ZtDUFeGs7VlEt"
+    }
+}
+```
+
+# Method : GET
+URL: /books  
+### Server harus mengembalikan respons dengan:
+Status Code : 200  
+Response Body:  
+```json
+{
+    "status": "success",
+    "data": {
+        "books": [
+            {
+                "id": "Qbax5Oy7L8WKf74l",
+                "name": "Buku A",
+                "publisher": "Dicoding Indonesia"
+            },
+            {
+                "id": "1L7ZtDUFeGs7VlEt",
+                "name": "Buku B",
+                "publisher": "Dicoding Indonesia"
+            },
+            {
+                "id": "K8DZbfI-t3LrY7lD",
+                "name": "Buku C",
+                "publisher": "Dicoding Indonesia"
+            }
+        ]
+    }
+}
+```
+Jika belum terdapat buku yang dimasukkan, server bisa merespons dengan array books kosong.
+```json
+{
+    "status": "success",
+    "data": {
+        "books": []
     }
 }
 ```
