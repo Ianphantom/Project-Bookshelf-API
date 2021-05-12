@@ -40,5 +40,20 @@ Properti yang ditebalkan diolah dan didapatkan di sisi server. Berikut penjelasa
 
 Server harus merespons gagal bila:  
 - Client tidak melampirkan properti namepada request body. Bila hal ini terjadi, maka server akan merespons dengan:  
-Status Code : 400
+Status Code : 400  
 Response Body:
+```json
+{
+    "status": "fail",
+    "message": "Gagal menambahkan buku. Mohon isi nama buku"
+}
+```  
+- Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan:  
+Status Code : 400  
+Response Body:
+```json
+{
+    "status": "fail",
+    "message": "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount"
+}
+```
