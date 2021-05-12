@@ -1,4 +1,4 @@
-### Method : POST
+# Method : POST
 URL : /books
 Body Request
 ```json
@@ -37,8 +37,7 @@ Properti yang ditebalkan diolah dan didapatkan di sisi server. Berikut penjelasa
 - insertedAt : merupakan properti yang menampung tanggal dimasukkannya buku. Anda bisa gunakan new Date().toISOString() untuk menghasilkan nilainya.
 - updatedAt : merupakan properti yang menampung tanggal diperbarui buku. Ketika buku baru dimasukkan, berikan nilai properti ini sama dengan insertedAt.  
 
-
-Server harus merespons gagal bila:  
+## Server harus merespons gagal bila:  
 - Client tidak melampirkan properti namepada request body. Bila hal ini terjadi, maka server akan merespons dengan:  
 Status Code : 400  
 Response Body:
@@ -67,7 +66,7 @@ Response Body:
 }
 ```
 
-Bila buku berhasil dimasukkan, server harus mengembalikan respons dengan:  
+## Bila buku berhasil dimasukkan, server harus mengembalikan respons dengan:  
 Status Code : 201
 Response Body:
 ```json
